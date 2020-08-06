@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
 
-  root 'welcomes#home'
+  root 'application#home'
 
   #
-  resources :welcomes
-
   resources :worlds do
     resources :plots, :characters
   end

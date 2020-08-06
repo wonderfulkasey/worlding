@@ -14,12 +14,22 @@ ActiveRecord::Schema.define(version: 2020_08_06_204813) do
 
   create_table "characters", force: :cascade do |t|
     t.string "name"
+    t.string "alignment"
+    t.string "species"
+    t.string "character_class"
+    t.text "description"
+    t.integer "world_id"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "plots", force: :cascade do |t|
     t.string "title"
+    t.string "importance"
+    t.text "description"
+    t.integer "world_id"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -40,6 +50,10 @@ ActiveRecord::Schema.define(version: 2020_08_06_204813) do
 
   create_table "worlds", force: :cascade do |t|
     t.string "name"
+    t.string "genre"
+    t.text "description"
+    t.text "aesthetic"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
