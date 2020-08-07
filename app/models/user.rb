@@ -1,4 +1,14 @@
 class User < ApplicationRecord
+
+  has_many :worlds
+  accepts_nested_attributes_for :worlds
+
+  has_many :characters, through: :worlds
+  has_many :plots, through: :worlds
+
+  validates :name, length: { minimum: 3 }
+  validates :email, uniqueness: true
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -10,7 +20,15 @@ class User < ApplicationRecord
             user.provider = auth.provider
             user.uid = auth.uid
             user.email = auth.info.email
+        
+            if auth.info.username
+              user.name = auth.info.username
+            else
+              user.name = auth.info.name
+            end
+
             user.password = Devise.friendly_token[0,20]
+          
           end
-        end
+      end
 end
