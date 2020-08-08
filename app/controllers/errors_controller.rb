@@ -1,9 +1,15 @@
 class ErrorsController < ApplicationController
-    def not_found
-      render(:status => 404)
+  skip_before_action :authenticate_user!
+
+  def not_found
+    respond_to do |format|
+      format.html { render status: 404 }
     end
-  
-    def internal_server_error
-      render(:status => 500)
+  end
+
+  def internal_error
+    respond_to do |format|
+      format.html { render status: 500 }
     end
+  end
   end

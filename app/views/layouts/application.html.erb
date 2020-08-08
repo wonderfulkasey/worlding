@@ -60,7 +60,16 @@
 
 <footer>
   <div class="container">
-    Rails Girls <%= Time.now.year %>
+    Worlding <%= Time.now.year %>
+    <br>
+     Today's date is : 
+        <strong>
+         <span id="datetime"></span>
+         <script>
+var dt = new Date();
+document.getElementById("datetime").innerHTML = dt.toLocaleString();
+</script>
+        </strong>           
   </div>
 </footer>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
