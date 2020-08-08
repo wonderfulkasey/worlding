@@ -1,0 +1,18 @@
+<h1> Worlds </h1>
+
+<div>
+    <strong><%= link_to "Create a New world", new_world_path %></strong>
+    </div>
+    <br>
+   
+
+
+<ul>
+<div>
+<%= render partial: "worlds/list", locals: {worlds: @worlds} %>
+</div>
+</ul>
+
+<br>
+
+ <div>

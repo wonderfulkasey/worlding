@@ -1,0 +1,41 @@
+<% if @world.user_id == current_user.id %>
+    <%= link_to "Edit world", edit_world_path(@world) %> <br>
+    <%= link_to "new character", new_world_character_path(@world) %> <br>
+    <%= link_to "new plot", new_world_plot_path(@world) %>
+<% end %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @world.name %>
+</p>
+ 
+<p>
+  <strong>Genre:</strong>
+  <%= @world.genre %>
+</p>
+ 
+<p>
+  <strong>Aesthetic:</strong>
+  <%= @world.aesthetic %>
+</p>
+ 
+<p>
+  <strong>Description:</strong>
+  <%= @world.description %>
+</p>
+
+            <h3>All characters at <%= @world.name %></h3>
+            <div>
+            <%= render partial: "characters/list", locals: {characters: @characters} %>
+            </div>
+
+
+  <h3>plots for <%= @world.name %> </h3>
+            <% @plots.each do |p| %>
+                
+                  <li><%= link_to p.title, world_plot_path(p.world, p) %></li>
+ 
+            <% end %>
+            <br>
+
+<%= link_to 'Back', worlds_path %>
