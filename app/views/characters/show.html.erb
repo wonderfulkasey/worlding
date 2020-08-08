@@ -1,0 +1,33 @@
+<strong>world:</strong> <%= link_to @world.name, world_path(@world) %> <br>
+  
+<% if @character.user_id == current_user.id %>
+    <%= link_to "Edit character", edit_world_character_path(@world) %> <br>
+ 
+  <% else %>
+ 
+<% end %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @character.name  %>
+</p>
+ 
+<p>
+  <strong>alignment:</strong>
+  <%= @character.alignment %>
+</p>
+ 
+<p>
+  <strong>character_class:</strong>
+  <%= @character.character_class %>
+</p>
+ 
+<p>
+  <strong>Description:</strong>
+  <%= @character.description %>
+</p>
+
+<p>
+  <strong>character species:</strong>
+  <%= @character.species %>
+</p>
