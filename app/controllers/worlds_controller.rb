@@ -1,7 +1,11 @@
 class WorldsController < ApplicationController
+    include ApplicationHelper
 
     before_action :authenticate_user!
     before_action :set_world, except: [:index, :new, :create, :show, :destroy]
+  #  before_action :set_plot, except: [:index, :new, :create, :show, :destroy]
+  #  before_action :set_character, except: [:index, :new, :create, :show, :destroy]
+
 
     def index
         @worlds = World.all

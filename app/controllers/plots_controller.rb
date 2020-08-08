@@ -1,4 +1,5 @@
 class PlotsController < ApplicationController
+    include ApplicationHelper
 
     before_action :authenticate_user!
     before_action :set_world
