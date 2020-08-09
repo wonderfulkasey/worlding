@@ -1,10 +1,9 @@
 class WorldsController < ApplicationController
-    include ApplicationHelper
 
     before_action :authenticate_user!
     before_action :set_world, except: [:index, :new, :create, :show, :destroy]
-  #  before_action :set_plot, except: [:index, :new, :create, :show, :destroy]
-  #  before_action :set_character, except: [:index, :new, :create, :show, :destroy]
+    before_action :set_plot, except: [:index, :new, :create, :show, :destroy, :edit]
+    before_action :set_character, except: [:index, :new, :create, :show, :destroy, :edit]
 
 
     def index
@@ -12,13 +11,14 @@ class WorldsController < ApplicationController
    end
 
     def show
+        #@user = User.find_by(id: params[:id])
         if params[:id] == "most-plots"
             @world = World.most_plots.first
         else
             set_world
         end
-       # @characters = @world.characters
-        #@plots = @world.plots    
+        @characters = @world.characters
+        @plots = @world.plots    
     end
 
     def character
@@ -36,9 +36,9 @@ class WorldsController < ApplicationController
     end
 
     def create
-        @world = World.new(world_params)
-        @world.user_id = current_user.id
-        #@world = current_user.worlds.build(world_params)
+        #@world = World.new(world_params)
+        #@world.user_id = current_user.id
+        @world = current_user.worlds.build(world_params)
 
         if @world.save
             flash[:notice] = "World was Sucessfully created!"
