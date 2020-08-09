@@ -1,8 +1,9 @@
 <% if @world.user_id == current_user.id %>
 <br>
-    <%= link_to "Edit world", edit_world_path(@world) %> <br>
-    <%= link_to "new character", new_world_character_path(@world) %> <br>
-    <%= link_to "new plot", new_world_plot_path(@world) %>
+    <%= link_to "EDIT WORLD", edit_world_path(@world) %> <br>
+    <br>
+    <%= link_to "NEW CHARACTER", new_world_character_path(@world) %> <br>
+    <%= link_to "NEW PLOT", new_world_plot_path(@world) %>
 <br>
 <br>
 <% end %>
