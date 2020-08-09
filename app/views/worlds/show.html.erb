@@ -24,12 +24,14 @@
   <%= @world.description %>
 </p>
 
+<p>
             <h3>All characters at <%= @world.name %></h3>
             <div>
             <%= render partial: "characters/list", locals: {characters: @characters} %>
             </div>
+</p>
 
-
+<p>
   <h3>plots for <%= @world.name %> </h3>
             <% @plots.each do |p| %>
                 
@@ -37,5 +39,6 @@
  
             <% end %>
             <br>
+</p>
 
 <%= link_to 'Back', worlds_path %>
