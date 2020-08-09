@@ -21,8 +21,13 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+
+#for signup and users
 gem 'devise'
 gem 'omniauth-github'
+
+#for styling and experimentation
+
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
