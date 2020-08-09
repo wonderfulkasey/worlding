@@ -1,5 +1,5 @@
 class PlotsController < ApplicationController
-    include ApplicationHelper
+   # include ApplicationHelper
 
     before_action :authenticate_user!
     before_action :set_world
@@ -65,6 +65,10 @@ class PlotsController < ApplicationController
             :user_id,
             :world_id
         )
+    end
+
+    def set_world
+        @world = World.find_by(id:params[:world_id])
     end
 
 end

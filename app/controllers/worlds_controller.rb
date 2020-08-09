@@ -2,8 +2,8 @@ class WorldsController < ApplicationController
 
     before_action :authenticate_user!
     before_action :set_world, except: [:index, :new, :create, :show, :destroy]
-    before_action :set_plot, except: [:index, :new, :create, :show, :destroy, :edit]
-    before_action :set_character, except: [:index, :new, :create, :show, :destroy, :edit]
+    before_action :set_plot, except: [:index, :new, :create, :show, :destroy, :edit, :update]
+    before_action :set_character, except: [:index, :new, :create, :show, :destroy, :edit, :update]
 
 
     def index
