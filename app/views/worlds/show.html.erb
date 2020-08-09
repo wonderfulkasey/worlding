@@ -1,8 +1,13 @@
 <% if @world.user_id == current_user.id %>
+<br>
     <%= link_to "Edit world", edit_world_path(@world) %> <br>
     <%= link_to "new character", new_world_character_path(@world) %> <br>
     <%= link_to "new plot", new_world_plot_path(@world) %>
+<br>
+<br>
 <% end %>
+
+<br>
 
 <p>
   <strong>Name:</strong>
@@ -23,14 +28,14 @@
   <strong>Description:</strong>
   <%= @world.description %>
 </p>
-
+<br>
 <p>
-            <h3>All characters at <%= @world.name %></h3>
+            <h3>characters in <%= @world.name %></h3>
             <div>
             <%= render partial: "characters/list", locals: {characters: @characters} %>
             </div>
 </p>
-
+<br>
 <p>
   <h3>plots for <%= @world.name %> </h3>
             <% @plots.each do |p| %>
