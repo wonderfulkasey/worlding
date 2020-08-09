@@ -17,8 +17,8 @@ class WorldsController < ApplicationController
         else
             set_world
         end
-        @characters = @world.characters
-        @plots = @world.plots    
+       # @characters = @world.characters
+        #@plots = @world.plots    
     end
 
     def character
@@ -36,8 +36,9 @@ class WorldsController < ApplicationController
     end
 
     def create
-       # @world = World.new(world_params)
-        @world = current_user.worlds.build(world_params)
+        @world = World.new(world_params)
+        @world.user_id = current_user.id
+        #@world = current_user.worlds.build(world_params)
 
         if @world.save
             flash[:notice] = "World was Sucessfully created!"
