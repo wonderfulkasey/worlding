@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   #resources :users
 
   resources :worlds do
-    resources :plots, :characters
+    resources :plots
+    resources :characters
   end
 
   resources :plots

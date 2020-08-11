@@ -25,8 +25,12 @@ class CharactersController < ApplicationController
 
           if @character.valid?
             @character.save
-            redirect_to worlds_path(@worlds)
-          else
+            #redirect_to world_character_url(@character)
+            redirect_to world_characters_path(@worlds)
+           # world_character GET      /worlds/:world_id/characters/:id(.:format) 
+            #set_character
+            #render :show
+        else
             flash[:errors] = @character.errors.full_messages
             render :new
         end
