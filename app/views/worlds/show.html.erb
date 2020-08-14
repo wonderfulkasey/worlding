@@ -4,6 +4,10 @@
     <br>
     <%= link_to "NEW CHARACTER", new_world_character_path(@world) %> <br>
     <%= link_to "NEW PLOT", new_world_plot_path(@world) %>
+<% else %>
+ <h3>Created by:</h3>
+ <%= @world.user.name %>
+
 <br>
 <br>
 <% end %>
