@@ -7,6 +7,17 @@ class ApplicationController < ActionController::Base
     def home 
     end 
 
+    def index
+        before_action :authenticate_user!
+        before_action :set_world, except: [:index, :new, :create, :show, :destroy]
+        #@user = User.find_by(id: params[:id])
+        
+        if params[:id] == "my-worlds"
+            @worlds = World.all
+        end
+           
+    end
+
     def set_world
         @world = World.find(params[:id])
     end

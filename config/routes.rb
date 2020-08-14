@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   root 'application#home'
 
   #
-  #resources :users
+  #resources :application
 
   resources :worlds do
     resources :plots
@@ -20,6 +20,9 @@ Rails.application.routes.draw do
 
   resources :plots
   resources :characters
+
+  #personal index
+  get 'worlds/my-worlds' => 'application#index'
 
   #view world with most plots 
   get 'worlds/most-plots' => 'worlds#show'
