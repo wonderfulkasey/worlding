@@ -13,7 +13,6 @@ class ApplicationController < ActionController::Base
     def index
       #@user = User.find_by(id: params[:id])
       
-
         if params[:id] == "my-worlds"
             redirect_to application_index_path
             @worlds = current_user.worlds
