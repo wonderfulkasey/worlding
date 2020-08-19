@@ -1,12 +1,13 @@
 class ApplicationController < ActionController::Base
     before_action :authenticate_user!
+    skip_before_action :authenticate_user!, :only => [:home]
     
     #helper_method :set_world, :set_character, :set_plot
     helper_method :set_world, :set_character, :set_plot
 
 
     def home 
-        skip_before_action :authenticate_user!
+        
     end 
 
     def index
