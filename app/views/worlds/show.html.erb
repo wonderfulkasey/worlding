@@ -9,8 +9,8 @@
 
 <% else %>
  <h3>Created by:</h3>
- <%= @world.user.name %> // 
- <%= @world.user.id %>
+ <%= @world.user.name %> // <%= link_to "profile", profile_path %>
+  <%= @world.user.id %> 
 
 <br>
 <br>
