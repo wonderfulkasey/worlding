@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   resources :characters
 
   #personal index
-  get '/my-worlds' => 'application#index'
+  get '/my-worlds' => 'worlds#profile'
 
   #view world with most plots 
   get 'worlds/most-plots' => 'worlds#show'

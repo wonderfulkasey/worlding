@@ -1,9 +1,9 @@
 class WorldsController < ApplicationController
 
     before_action :authenticate_user!
-    before_action :set_world, except: [:index, :new, :create, :show, :destroy]
-    before_action :set_plot, except: [:index, :new, :create, :show, :destroy, :edit, :update]
-    before_action :set_character, except: [:index, :new, :create, :show, :destroy, :edit, :update]
+    before_action :set_world, except: [:index, :new, :create, :show, :destroy, :profile]
+    before_action :set_plot, except: [:index, :new, :create, :show, :destroy, :edit, :update, :profile]
+    before_action :set_character, except: [:index, :new, :create, :show, :destroy, :edit, :update, :profile]
 
 
     def index
@@ -14,8 +14,10 @@ class WorldsController < ApplicationController
         #@user = User.find_by(id: params[:id])
         if params[:id] == "most-plots"
             @world = World.most_plots.first
-        else
+
+        else  
             set_world
+
         end
         @characters = @world.characters
         @plots = @world.plots    
@@ -71,6 +73,17 @@ class WorldsController < ApplicationController
 
       redirect_to worlds_path
     end
+
+    def profile
+   
+    if params[:id] == "my-worlds"
+        redirect_to world_profile_path
+       # @worlds = current_user.worlds
+    end 
+
+    end
+
+    
 
     private 
 
