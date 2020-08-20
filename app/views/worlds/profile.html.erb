@@ -6,3 +6,12 @@ Welcome back, USERNAME !
 Here is a list of all of your worlds:
 
 </p>
+
+<ul>
+<% @worlds.each do |w| %>
+
+    <li><%= link_to w.name, world_path(w) %> ||
+   </li> 
+   
+<% end %>
+</ul>

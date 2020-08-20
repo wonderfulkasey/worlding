@@ -11,7 +11,7 @@ class WorldsController < ApplicationController
    end
 
     def show
-        #@user = User.find_by(id: params[:id])
+        
         if params[:id] == "most-plots"
             @world = World.most_plots.first
 
@@ -75,12 +75,9 @@ class WorldsController < ApplicationController
     end
 
     def profile
-   
-    if params[:id] == "my-worlds"
-        redirect_to world_profile_path
-       # @worlds = current_user.worlds
-    end 
-
+        @user = current_user
+        @worlds = @user.worlds
+       # byebug
     end
 
     
@@ -93,7 +90,8 @@ class WorldsController < ApplicationController
             :name,
             :genre,
             :description,
-            :aesthetic
+            :aesthetic,
+            :user_id
         )
     end
 
