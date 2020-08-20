@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   get '/my-worlds' => 'worlds#profile'
 
   #other profiles
-  get '/:user_id' => 'worlds#others'
+  get '/:user_id' => 'application#profile'
 
   #view world with most plots 
   get 'worlds/most-plots' => 'worlds#show'

@@ -6,9 +6,13 @@ class ApplicationController < ActionController::Base
    # helper_method :set_world, :set_character, :set_plot
 
 
-    def home 
-        
+    def home
     end 
+
+    def profile
+        @user = User.find_by_name(params[:name])
+        @worlds = @user.worlds
+    end
 
   
 
