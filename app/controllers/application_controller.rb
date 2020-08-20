@@ -10,8 +10,9 @@ class ApplicationController < ActionController::Base
     end 
 
     def profile
-        @user = User.find_by_name(params[:name])
+        @user = User.find_by_id(params[:user_id])
         @worlds = @user.worlds
+      #  byebug
     end
 
   
