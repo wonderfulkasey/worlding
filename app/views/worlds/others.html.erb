@@ -1,0 +1,17 @@
+<h2>
+Here are the worlds belonging to: USERNAME!
+</h2>
+
+<p>
+Here is a list of all of their worlds:
+
+</p>
+
+<ul>
+<% @worlds.each do |w| %>
+
+    <li><%= link_to w.name, world_path(w) %> ||
+   </li> 
+   
+<% end %>
+</ul>

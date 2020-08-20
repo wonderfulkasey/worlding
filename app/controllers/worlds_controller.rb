@@ -80,8 +80,11 @@ class WorldsController < ApplicationController
        # byebug
     end
 
+    def others
+        @user = User.find_by_name(params[:name])
+        @worlds = @user.worlds
+    end
     
-
     private 
 
     def world_params
