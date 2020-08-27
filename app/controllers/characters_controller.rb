@@ -24,6 +24,7 @@ class CharactersController < ApplicationController
         @character.user_id = current_user.id
 
           if @character.valid?
+            #match all the processes
             @character.save
             #byebug
             redirect_to world_character_url(@character.world, @character)
