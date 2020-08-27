@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   root 'application#home'
 
   #
-  #resources :application
+  resources :application
 
   resources :worlds do
     resources :plots
@@ -22,7 +22,10 @@ Rails.application.routes.draw do
   resources :characters
 
   #personal index
-  get 'worlds/my-worlds' => 'application#index'
+  get '/my-worlds' => 'worlds#profile'
+
+  #other profiles
+  get '/:user_id' => 'application#profile'
 
   #view world with most plots 
   get 'worlds/most-plots' => 'worlds#show'
