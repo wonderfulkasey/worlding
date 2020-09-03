@@ -35,6 +35,7 @@ class CharactersController < ApplicationController
             render :new
         end
     end
+    #merged branch
 
     def edit
        @character = Character.find(params[:id])
