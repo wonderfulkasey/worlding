@@ -47,7 +47,8 @@ class CharactersController < ApplicationController
         @character.user_id = current_user.id
 
         if @character.update(character_params)
-            redirect_to worlds_path(@worlds)
+            redirect_to world_character_url(@character.world, @character)
+           # redirect_to worlds_path(@worlds)
         else
             flash[:errors] = @character.errors.full_messages
             render :edit
@@ -58,7 +59,9 @@ class CharactersController < ApplicationController
         @character = Character.find(params[:id])
         @character.destroy
 
-        redirect_to characters_path 
+       # redirect_to worlds_path(@world)
+        redirect_to world_url(@character.world)
+
     end
 
     private 
